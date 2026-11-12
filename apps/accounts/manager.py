@@ -17,7 +17,7 @@ class CustomUserManager(BaseUserManager):
         GlobalUserModel = apps.get_model(
             self.model._meta.app_label, self.model._meta.object_name
         )
-        user = self.model(username=email, email=email, **extra_fields)
+        user = self.model( email=email, **extra_fields)
         user.password = make_password(password)
         return user
 
